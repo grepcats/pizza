@@ -15,10 +15,44 @@ Pizza.prototype.calcCost = function() {
     this.cost = this.base + 4;
   }
   //toppings costs
-  this.cost = this.cost + this.toppings.length;
+  var topCost = 0;
+  this.toppings.forEach(function(top) {
+    topCost = topCost + top.type;
+  });
+  this.cost += topCost;
 }
 
-//toppingArray = ["pepperoni", "sausage", "ham", "bacon", "pineapple", "green peppers", "olives", "onions", "mushrooms"];
+function Topping(name, type) {
+  this.name = name;
+  this.type = type;
+}
+
+function addTopping(order, topping) {
+  var toppingArray = [{name:"pepperoni", type:1},
+                  {name:"sausage", type:1},
+                  {name:"ham", type:1},
+                  {name:"bacon", type:1},
+                  {name:"pineapple", type:1},
+                  {name:"peppers", type:1},
+                  {name:"olives", type:1},
+                  {name:"onions", type:1},
+                  {name:"mushrooms", type:1},
+                  {name:"artichokes", type:2},
+                  {name:"roastedredpepper", type:2},
+                  {name:"garlic", type:2}
+                ];
+  i = 0;
+  toppingArray.forEach(function(top) {
+    if (top.name === topping){
+      order.toppings.push(toppingArray[i]);
+    }
+    i++;
+});
+}
+
+
+
+//"ham", "bacon", "pineapple", "green peppers", "olives", "onions", "mushrooms"];
 
 $(document).ready(function() {
 
@@ -27,7 +61,7 @@ $(document).ready(function() {
     var sizeInput = $("#size").val();
     var order = new Pizza(sizeInput);
     $("input:checkbox[name=toppings]:checked").each(function() {
-      order.toppings.push($(this).val());
+      addTopping(order, $(this).val());
     });
 
     order.calcCost();

@@ -18,6 +18,8 @@ Output: $7 ($5 base small pizza, 1 dollar per topping)
 
 ---
 Program will allow for toppings at different costs ("fancy" toppings are more expensive)
+Input: Artichokes
+Output: 2 dollars per topping
 
 Program will allow for the creation of multiple pizzas
 
@@ -26,6 +28,9 @@ Program will display a final list of pizzas for the user that can be clicked for
 Program will allow user to change their toppings/size for any pizza at review stage
 
 Program will take address information for delivery
+
+Program will allow user to put toppings on half
+Cost based on half with highest number of toppings
 
 
 
