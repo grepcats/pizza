@@ -16,7 +16,6 @@ Program will calculate cost based on size and number of toppings
 Input: small pizza with two toppings
 Output: $7 ($5 base small pizza, 1 dollar per topping)
 
----
 Program will allow for toppings at different costs ("fancy" toppings are more expensive)
 Input: Artichokes
 Output: 2 dollars per topping
@@ -24,6 +23,9 @@ Output: 2 dollars per topping
 Program will allow for the creation of multiple pizzas
 Input: (add pizza)
 Output: pizza1, pizza2
+
+Program will display total for multiple pizzas
+---
 
 Program will display a final list of pizzas for the user that can be clicked for details for review
 

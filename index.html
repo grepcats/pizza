@@ -11,49 +11,54 @@
   <body>
     <div class="container">
       <h1>Pizza</h1>
-      <form id="pizza-form">
-        <div class="form-group">
-          <label for="size">What size pizza would you like?</label>
-          <select id="size" class="form-control">
-            <option value="small">Small - 10"</option>
-            <option value="medium">Medium - 12"</option>
-            <option value="large">Large - 14"</option>
-          </select>
+      <span class="btn btn-warning" id="add">Add Pizza</span>
+      <div class="pizzas">
+      </div>
+      <div class="original-form">
+        <form id="pizza-form">
+          <div class="form-group">
+            <label for="size">What size pizza would you like?</label>
+            <select id="size" class="form-control">
+              <option value="small">Small - 10"</option>
+              <option value="medium">Medium - 12"</option>
+              <option value="large">Large - 14"</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <h2>What toppings would you like?</h2>
+            <h3>$1 toppings</h3>
+            <ul>
+              <li><label for='pepperoni' class='topping-label'>
+              <input type='checkbox' id='pepperoni' name='toppings' value='pepperoni'> Pepperoni</label></li>
+              <li><label for='sausage' class='topping-label'>
+              <input type='checkbox' id='sausage' name='toppings' value='sausage'> Sausage</label></li>
+              <li><label for='ham' class='topping-label'>
+              <input type='checkbox' id='ham' name='toppings' value='ham'> Ham</label></li>
+              <li><label for='bacon' class='topping-label'>
+              <input type='checkbox' id='bacon' name='toppings' value='bacon'> Bacon</label></li>
+              <li><label for='pineapple' class='topping-label'>
+              <input type='checkbox' id='pineapple' name='toppings' value='pineapple'> Pineapple</label></li>
+              <li><label for='peppers' class='topping-label'>
+              <input type='checkbox' id='peppers' name='toppings' value='peppers'> Green Peppers</label></li>
+              <li><label for='olives' class='topping-label'>
+              <input type='checkbox' id='olives' name='toppings' value='olives'> Olives</label></li>
+              <li><label for='onions' class='topping-label'>
+              <input type='checkbox' id='onions' name='toppings' value='onions'> Onions</label></li>
+              <li><label for='mushrooms' class='topping-label'>
+              <input type='checkbox' id='mushrooms' name='toppings' value='mushrooms'> Mushrooms</label></li>
+              </ul>
+              <h3>$2 toppings</h3>
+              <ul>
+              <li><label for='artichokes' class='topping-label'>
+              <input type='checkbox' id='artichokes' name='toppings' value='artichokes'> Artichoke Hearts</label></li>
+              <li><label for='mushrooms' class='topping-label'>
+              <input type='checkbox' id='roastedredpepper' name='toppings' value='roastedredpepper'> Roasted Red Peppers</label></li>
+              <li><label for='mushrooms' class='topping-label'>
+              <input type='checkbox' id='garlic' name='toppings' value='garlic'> Garlic</label></li>
+              </ul>
+          </div>
         </div>
-        <div class="form-group">
-          <h2>What toppings would you like?</h2>
-          <h3>$1 toppings</h3>
-          <ul>
-            <li><label for="pepperoni" class="topping-label">
-            <input type="checkbox" id="pepperoni" name="toppings" value="pepperoni"> Pepperoni</label></li>
-            <li><label for="sausage" class="topping-label">
-            <input type="checkbox" id="sausage" name="toppings" value="sausage"> Sausage</label></li>
-            <li><label for="ham" class="topping-label">
-            <input type="checkbox" id="ham" name="toppings" value="ham"> Ham</label></li>
-            <li><label for="bacon" class="topping-label">
-            <input type="checkbox" id="bacon" name="toppings" value="bacon"> Bacon</label></li>
-            <li><label for="pineapple" class="topping-label">
-            <input type="checkbox" id="pineapple" name="toppings" value="pineapple"> Pineapple</label></li>
-            <li><label for="peppers" class="topping-label">
-            <input type="checkbox" id="peppers" name="toppings" value="peppers"> Green Peppers</label></li>
-            <li><label for="olives" class="topping-label">
-            <input type="checkbox" id="olives" name="toppings" value="olives"> Olives</label></li>
-            <li><label for="onions" class="topping-label">
-            <input type="checkbox" id="onions" name="toppings" value="onions"> Onions</label></li>
-            <li><label for="mushrooms" class="topping-label">
-            <input type="checkbox" id="mushrooms" name="toppings" value="mushrooms"> Mushrooms</label></li>
-          </ul>
-          <h3>$2 toppings</h3>
-          <ul>
-            <li><label for="artichokes" class="topping-label">
-            <input type="checkbox" id="artichokes" name="toppings" value="artichokes"> Artichoke Hearts</label></li>
-            <li><label for="mushrooms" class="topping-label">
-            <input type="checkbox" id="roastedredpepper" name="toppings" value="roastedredpepper"> Roasted Red Peppers</label></li>
-            <li><label for="mushrooms" class="topping-label">
-            <input type="checkbox" id="garlic" name="toppings" value="garlic"> Garlic</label></li>
-          </ul>
-        </div>
-        <button type="submit" class="btn btn-info">Submit pizza</button>
+        <button type="submit" class="btn btn-info">Submit pizza[s]</button>
       </form>
       <div class="total">
         <h2>Thanks! Your total comes to:</h2>
