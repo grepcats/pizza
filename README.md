@@ -25,16 +25,16 @@ Input: (add pizza)
 Output: pizza1, pizza2
 
 Program will display total for multiple pizzas
----
 
 Program will display a final list of pizzas for the user that can be clicked for details for review
 
-Program will allow user to change their toppings/size for any pizza at review stage
-
+//future features
 Program will take address information for delivery
 
+Program will allow user to change their toppings/size for any pizza at review stage
+
 Program will allow user to put toppings on half
-Cost based on half with highest number of toppings
+(Cost based on half with highest number of toppings)
 
 
 

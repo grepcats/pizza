@@ -132,10 +132,10 @@ function displayTotal(order) {
   order.orderCost();
   $(".total").show();
   for (var i = 0; i < order.pizzas.length; i++) {
-    $(".total").append("<div class='well review pizza-num' id='pizzaID" + i +"'><h3>Pizza #" + (i+1) + ": $" + order.pizzas[i].cost + "</h3><h4>Please click to review this pizza!</h4><p class='review-text'></p></div>");
+    $(".total").append("<div class='well total-well review pizza-num' id='pizzaID" + i +"'><h3>Pizza #" + (i+1) + ": $" + order.pizzas[i].cost + "</h3><h4>Please click to see details for this pizza!</h4><p class='review-text'></p></div>");
   }
 
-  $(".total").append("<p id='total-text'>$" + order.total + "</p>");
+  $(".total").append("<p id='total-text'>The total for your order is: $" + order.total + "</p>");
 }
 
 
@@ -146,13 +146,12 @@ $(document).ready(function() {
     $(".remove").click(function() {
       $(this).parent().remove();
     });
-    $(".oneTopHead").click(function() {
-      $(".oneTopList").toggle();
-    });
-    $(".twoTopHead").click(function() {
-      $(".twoTopList").toggle();
-    });
-
+    //$(".oneTopHead").click(function() {
+    //  $(".oneTopList").toggle();
+    //});
+  //  $(".twoTopHead").click(function() {
+  //    $(".twoTopList").toggle();
+  //  });
   });
 
 
@@ -166,15 +165,27 @@ var order = new Order();
 
 //display order total
   displayTotal(order);
+  $(".pizzas").hide();
+  $("#add").hide();
+  //$(".retry").show()
 
 //review click
   $(".review").click(function() {
  //TODO - need to be able to grab all numbers after pizzaID, not just last one
     var pizzaIndex = $(this).attr("id")[7];
     var reviewPizza = order.pizzas[pizzaIndex];
+    $(this).find("h4").remove();
     $(this).find(".review-text").html("<p>Size: " + reviewPizza.size + "</p><p>Toppings: " + reviewPizza.toppingsDisplay.join(", "));
 
   });
+
+  //$(".retry").click(function() {
+  //  $(".pizzas").show();
+  //  $(".review").remove();
+  //  $(".total div").remove();
+  //  $(".total p").remove();
+
+  //});
 
 
 

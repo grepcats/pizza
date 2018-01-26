@@ -3,6 +3,16 @@ h2 {
   font-weight: bold;
 }
 
+body {
+  background-image: url("pizza.png");
+  background-repeat:repeat;
+}
+
+.container {
+  background-image: url("pizza.png");
+
+}
+
 .topping-label {
   font-weight: normal;
 }
@@ -15,10 +25,12 @@ ul {
   display:none;
 }
 
+/*
 .oneTopList,
 .twoTopList {
   display:none;
 }
+*/
 
 #submit-button {
   display:none;
@@ -38,6 +50,7 @@ ul {
 .centered-content {
   display:flex;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
 .jumbotron {
@@ -53,8 +66,11 @@ ul {
 }
 
 
+.total-well {
+  background-color: #00ff0080;
+}
 
 #total-text {
-  font-size: 1.25em;
+  font-size: 2em;
   font-weight: bold;
 }
