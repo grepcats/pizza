@@ -9,7 +9,7 @@ Input: small
 Output: small Pizza with corresponding cost
 
 Program has different toppings that can be added to Pizza
-Input: pepperoni, olives (via dropdown? radio?)
+Input: pepperoni, olives (UI - dropdown? radio?)
 Output: pizza with two toppings
 
 Program will calculate cost based on size and number of toppings
