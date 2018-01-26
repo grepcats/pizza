@@ -107,6 +107,34 @@ function buildPizzaForm() {
                       "</div>")
 }
 
+function createOrder(order) {
+  $(".pizza").each(function() {
+    var pToppings = []
+    var sizeInput = $(this).find(".size").val();
+    $(this).find("input:checkbox[name=toppings]:checked").each(function() {
+      pToppings.push($(this).val());
+    });
+    var pizza = new Pizza(sizeInput)
+    pToppings.forEach(function(topping) {
+      addTopping(pizza, topping);
+      pizza.toppingsDisplay.push(topping);
+    });
+    order.pizzas.push(pizza);
+  });
+}
+
+function displayTotal(order) {
+  order.pizzas.forEach(function(pizza) {
+    pizza.calcCost();
+  })
+  order.orderCost();
+  $(".total").show();
+  for (var i = 0; i < order.pizzas.length; i++) {
+    $(".total").append("<p>Pizza #" + (i+1) + ": $" + order.pizzas[i].cost + ". <span class='review' id='pizzaID" + i +"'>Please click to review</span></p>");
+  }
+
+  $(".total").append("<p>$" + order.total + "</p>");
+}
 
 //"ham", "bacon", "pineapple", "green peppers", "olives", "onions", "mushrooms"];
 
@@ -115,35 +143,15 @@ $(document).ready(function() {
     buildPizzaForm();
   });
 
+//create order
 var order = new Order();
-//make this a function
+
   $("#pizza-form").submit(function(event) {
     event.preventDefault();
-    $(".pizza").each(function() {
-      var pToppings = []
-      var sizeInput = $(this).find(".size").val();
-      $(this).find("input:checkbox[name=toppings]:checked").each(function() {
-        pToppings.push($(this).val());
-      });
-      var pizza = new Pizza(sizeInput)
-      pToppings.forEach(function(topping) {
-        addTopping(pizza, topping);
-        pizza.toppingsDisplay.push(topping);
-      });
-      order.pizzas.push(pizza);
-    });
+    createOrder(order);
 
-//order total
-    order.pizzas.forEach(function(pizza) {
-      pizza.calcCost();
-    })
-    order.orderCost();
-    $(".total").show();
-    for (var i = 0; i < order.pizzas.length; i++) {
-      $(".total").append("<p>Pizza #" + (i+1) + ": $" + order.pizzas[i].cost + ". <span class='review' id='pizzaID" + i +"'>Please click to review</span></p>");
-    }
-
-    $(".total").append("<p>$" + order.total + "</p>");
+//display order total
+  displayTotal(order);
 
 //review click
   $(".review").click(function() {
@@ -153,7 +161,7 @@ var order = new Order();
     $(this).parent().append("<p>Size: " + reviewPizza.size + "</p>" +
                             "<p>Toppings: " + reviewPizza.toppingsDisplay.join(", "));
     console.log(order.pizzas[pizzaIndex]);
-
+    $(this).unbind("click");
 
   });
 
