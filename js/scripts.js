@@ -1,3 +1,18 @@
+function Order() {
+  this.pizzas = [];
+  this.total = 0;
+}
+
+Order.prototype.orderCost = function() {
+  var totalCost = 0;
+  this.pizzas.forEach(function(pizza) {
+    console.log(pizza.cost);
+    totalCost += pizza.cost;
+  });
+  return this.total = totalCost;
+}
+
+
 function Pizza(size) {
   this.size = size;
   this.base = 5;
@@ -22,12 +37,7 @@ Pizza.prototype.calcCost = function() {
   this.cost += topCost;
 }
 
-function Topping(name, type) {
-  this.name = name;
-  this.type = type;
-}
-
-function addTopping(order, topping) {
+function addTopping(pizza, topping) {
   var toppingArray = [{name:"pepperoni", type:1},
                   {name:"sausage", type:1},
                   {name:"ham", type:1},
@@ -44,7 +54,7 @@ function addTopping(order, topping) {
   i = 0;
   toppingArray.forEach(function(top) {
     if (top.name === topping){
-      order.toppings.push(toppingArray[i]);
+      pizza.toppings.push(toppingArray[i]);
     }
     i++;
 });
@@ -59,13 +69,13 @@ $(document).ready(function() {
   $("#pizza-form").submit(function(event) {
     event.preventDefault();
     var sizeInput = $("#size").val();
-    var order = new Pizza(sizeInput);
+    //var order = new Pizza(sizeInput);
     $("input:checkbox[name=toppings]:checked").each(function() {
       addTopping(order, $(this).val());
     });
 
     order.calcCost();
-
+    $(".total").show();
     $(".total").append("<p>$" + order.cost + "</p>");
     debugger;
   });

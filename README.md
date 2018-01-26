@@ -22,6 +22,8 @@ Input: Artichokes
 Output: 2 dollars per topping
 
 Program will allow for the creation of multiple pizzas
+Input: (add pizza)
+Output: pizza1, pizza2
 
 Program will display a final list of pizzas for the user that can be clicked for details for review
 
