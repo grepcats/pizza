@@ -17,6 +17,7 @@ function Pizza(size) {
   this.size = size;
   this.base = 5;
   this.cost = 0;
+  this.toppingsDisplay = [];
   this.toppings = [];
   }
 
@@ -127,6 +128,7 @@ var order = new Order();
       var pizza = new Pizza(sizeInput)
       pToppings.forEach(function(topping) {
         addTopping(pizza, topping);
+        pizza.toppingsDisplay.push(topping);
       });
       order.pizzas.push(pizza);
     });
@@ -138,13 +140,20 @@ var order = new Order();
     order.orderCost();
     $(".total").show();
     for (var i = 0; i < order.pizzas.length; i++) {
-      $(".total").append("<p>Pizza #" + (i+1) + ": $" + order.pizzas[i].cost + ". <span class='review'>Please click to review</span></p>");
+      $(".total").append("<p>Pizza #" + (i+1) + ": $" + order.pizzas[i].cost + ". <span class='review' id='pizzaID" + i +"'>Please click to review</span></p>");
     }
 
     $(".total").append("<p>$" + order.total + "</p>");
 
 //review click
   $(".review").click(function() {
+ //TODO - need to be able to grab all numbers after pizzaID, not just last one
+    var pizzaIndex = $(this).attr("id")[7];
+    var reviewPizza = order.pizzas[pizzaIndex];
+    $(this).parent().append("<p>Size: " + reviewPizza.size + "</p>" +
+                            "<p>Toppings: " + reviewPizza.toppingsDisplay.join(", "));
+    console.log(order.pizzas[pizzaIndex]);
+
 
   });
 
