@@ -6,11 +6,49 @@
     <link href= "css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/scripts.js"></script>
-    <title>Project</title>
+    <title>Pizza Bois</title>
   </head>
   <body>
     <div class="container">
       <h1>Pizza</h1>
+      <form id="pizza-form">
+        <div class="form-group">
+          <label for="size">What size pizza would you like?</label>
+          <select id="size" class="form-control">
+            <option value="small">Small - 10"</option>
+            <option value="medium">Medium - 12"</option>
+            <option value="large">Large - 14"</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <h2>What toppings would you like?</h2>
+          <ul>
+            <li><label for="pepperoni" class="topping-label">
+            <input type="checkbox" id="pepperoni" name="toppings" value="pepperoni"> Pepperoni</label></li>
+            <li><label for="sausage" class="topping-label">
+            <input type="checkbox" id="sausage" name="toppings" value="sausage"> Sausage</label></li>
+            <li><label for="ham" class="topping-label">
+            <input type="checkbox" id="ham" name="toppings" value="ham"> Ham</label></li>
+            <li><label for="bacon" class="topping-label">
+            <input type="checkbox" id="bacon" name="toppings" value="bacon"> Bacon</label></li>
+            <li><label for="pineapple" class="topping-label">
+            <input type="checkbox" id="pineapple" name="toppings" value="pineapple"> Pineapple</label></li>
+            <li><label for="peppers" class="topping-label">
+            <input type="checkbox" id="peppers" name="toppings" value="peppers"> Green Peppers</label></li>
+            <li><label for="olives" class="topping-label">
+            <input type="checkbox" id="olives" name="toppings" value="olives"> Olives</label></li>
+            <li><label for="onions" class="topping-label">
+            <input type="checkbox" id="onions" name="toppings" value="onions"> Onions</label></li>
+            <li><label for="mushrooms" class="topping-label">
+            <input type="checkbox" id="mushrooms" name="toppings" value="mushrooms"> Mushrooms</label></li>
+          </ul>
+        </div>
+        <button type="submit" class="btn btn-info">Submit pizza</button>
+      </form>
+      <div class="total">
+        <h2>Thanks! Your total comes to:</h2>
+
+      </div>
     </div>
   </body>
 </html>

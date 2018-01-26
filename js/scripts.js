@@ -14,16 +14,29 @@ Pizza.prototype.calcCost = function() {
   } else if (this.size === "large") {
     this.cost = this.base + 4;
   }
-
   //toppings costs
   this.cost = this.cost + this.toppings.length;
-
 }
 
-sizeArray = ["small", "medium", "large"];
-toppingArray = ["pepperoni", "sausage", "ham", "bacon", "pineapple", "green peppers", "olives", "onions", "mushrooms"];
+//toppingArray = ["pepperoni", "sausage", "ham", "bacon", "pineapple", "green peppers", "olives", "onions", "mushrooms"];
 
 $(document).ready(function() {
-  var order = new Pizza("small");
+
+  $("#pizza-form").submit(function(event) {
+    event.preventDefault();
+    var sizeInput = $("#size").val();
+    var order = new Pizza(sizeInput);
+    $("input:checkbox[name=toppings]:checked").each(function() {
+      order.toppings.push($(this).val());
+    });
+
+    order.calcCost();
+
+    $(".total").append("<p>$" + order.cost + "</p>");
+    debugger;
+  });
+
+
+
 
 });

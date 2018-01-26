@@ -1,0 +1,12 @@
+h2 {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.topping-label {
+  font-weight: normal;
+}
+
+ul {
+  list-style-type: none;
+}
