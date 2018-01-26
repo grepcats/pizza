@@ -10,17 +10,24 @@
   </head>
   <body>
     <div class="container">
-      <h1>Pizza</h1>
-      <span class="btn btn-warning" id="add">Add Pizza</span>
+      <div class="jumbotron">
+        <h1>Welcome to Delicious Pizza!</h1>
+        <p>Please select "Add Pizza" to begin.</p>
+      </div>
+      <div class="centered-content">
+        <span class="btn btn-default btn-lg" id="add">Add Pizza</span>
+      </div>
       <div>
         <form class="pizzas" id="pizza-form">
-      <button type="submit" class="btn btn-info">Submit pizza[s]</button>
+      <button type="submit" class="btn btn-info" id="submit-button">Get total</button>
       </form>
       </div>
 
 
       <div class="total">
-        <h2>Thanks! Your total comes to:</h2>
+        <div class="centered-content">
+          <h2 id="total-header">Thanks! Here is your order for review...</h2>
+        </div>
 
       </div>
     </div>

@@ -19,3 +19,42 @@ ul {
 .twoTopList {
   display:none;
 }
+
+#submit-button {
+  display:none;
+}
+
+#add {
+  margin-bottom: 20px;
+}
+
+.btn-lg {
+  padding: 20px 30px;
+  font-size: 22px;
+  line-height: 2;
+  border-radius: 10px;
+}
+
+.centered-content {
+  display:flex;
+  justify-content: center;
+}
+
+.jumbotron {
+  text-align: center;
+}
+
+#total-header {
+  font-size: 2.5em;
+}
+
+.pizza-num {
+    font-size: 1.25em;
+}
+
+
+
+#total-text {
+  font-size: 1.25em;
+  font-weight: bold;
+}
