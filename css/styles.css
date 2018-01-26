@@ -4,14 +4,24 @@ h2 {
 }
 
 body {
-  background-image: url("pizza.png");
-  background-repeat:repeat;
+  background-color: #efefef;
 }
 
 .container {
-  background-image: url("pizza.png");
-
+  background-color: #fff;
 }
+
+.jumbotron {
+  text-align: center;
+  background-color: #bb4d00;
+  color: #fff;
+}
+
+/*
+.container {
+  background-image: url("../pizza.png");
+  background-repeat:repeat;
+}*/
 
 .topping-label {
   font-weight: normal;
@@ -53,9 +63,7 @@ ul {
   margin-bottom: 20px;
 }
 
-.jumbotron {
-  text-align: center;
-}
+
 
 #total-header {
   font-size: 2.5em;
@@ -65,9 +73,8 @@ ul {
     font-size: 1.25em;
 }
 
-
-.total-well {
-  background-color: #00ff0080;
+.well {
+  background-color: #ffcc80;
 }
 
 #total-text {
