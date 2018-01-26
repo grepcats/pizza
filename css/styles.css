@@ -15,6 +15,7 @@ ul {
   display:none;
 }
 
-.original-form {
+.oneTopList,
+.twoTopList {
   display:none;
 }

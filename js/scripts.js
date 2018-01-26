@@ -1,3 +1,4 @@
+//business functions
 function Order() {
   this.pizzas = [];
   this.total = 0;
@@ -11,7 +12,6 @@ Order.prototype.orderCost = function() {
   });
   return this.total = totalCost;
 }
-
 
 function Pizza(size) {
   this.size = size;
@@ -61,8 +61,9 @@ function addTopping(pizza, topping) {
 });
 }
 
+//UI functions
 function buildPizzaForm() {
-  $(".pizzas").append("<div class='pizza'>" +
+  $(".pizzas").prepend("<div class='pizza well'>" +
                         "<div class='form-group'>" +
                           "<label for='size'>What size pizza would you like?</label>" +
                           "<select class='size form-control'>" +
@@ -73,8 +74,8 @@ function buildPizzaForm() {
                         "</div>" +
                         "<div class='form-group'>" +
                           "<h2>What toppings would you like?</h2>" +
-                          "<h3>$1 toppings</h3>" +
-                          "<ul>" +
+                          "<h3 class='oneTopHead'>$1 toppings <span class='caret'></span></h3>" +
+                          "<ul class='oneTopList'>" +
                             "<li><label for='pepperoni' class='topping-label'>" +
                             "<input type='checkbox' class='pepperoni' name='toppings' value='pepperoni'> Pepperoni</label></li>" +
                             "<li><label for='sausage' class='topping-label'>" +
@@ -94,8 +95,8 @@ function buildPizzaForm() {
                             "<li><label for='mushrooms' class='topping-label'>" +
                             "<input type='checkbox' class='mushrooms' name='toppings' value='mushrooms'> Mushrooms</label></li>" +
                           "</ul>" +
-                          "<h3>$2 toppings</h3>" +
-                          "<ul>" +
+                          "<h3 class='twoTopHead'>$2 toppings <span class='caret'></span></h3>" +
+                          "<ul class='twoTopList'>" +
                             "<li><label for='artichokes' class='topping-label'>" +
                             "<input type='checkbox' class='artichokes' name='toppings' value='artichokes'> Artichoke Hearts</label></li>" +
                             "<li><label for='mushrooms' class='topping-label'>" +
@@ -104,6 +105,7 @@ function buildPizzaForm() {
                             "<input type='checkbox' class='garlic' name='toppings' value='garlic'> Garlic</label></li>" +
                           "</ul>" +
                         "</div>" +
+                        "<span class='btn btn-danger remove'>Remove Pizza</span>" +
                       "</div>")
 }
 
@@ -136,12 +138,22 @@ function displayTotal(order) {
   $(".total").append("<p>$" + order.total + "</p>");
 }
 
-//"ham", "bacon", "pineapple", "green peppers", "olives", "onions", "mushrooms"];
 
 $(document).ready(function() {
   $("#add").click(function() {
     buildPizzaForm();
+    $(".remove").click(function() {
+      $(this).parent().remove();
+    });
+    $(".oneTopHead").click(function() {
+      $(".oneTopList").toggle();
+    });
+    $(".twoTopHead").click(function() {
+      $(".twoTopList").toggle();
+    });
   });
+
+
 
 //create order
 var order = new Order();
@@ -166,23 +178,6 @@ var order = new Order();
   });
 
 
-      //var pToppings = $(this).find("input:checkbox[name=toppings]:checked").val();
-    //  var newPizza = new Pizza(sizeInput);
-  //    debugger;
-  //    pToppings.forEach(function(pTopping) {
-  //      addTopping(newPizza, pTopping);
-  //    })
-//    });
-
-    //var sizeInput = $("#size").val();
-    //var order = new Pizza(sizeInput);
-    //$("input:checkbox[name=toppings]:checked").each(function() {
-      //addTopping(order, $(this).val());
-    //});
-
-    //order.calcCost();
-  //  $(".total").show();
-  //  $(".total").append("<p>$" + order.cost + "</p>");
 
   });
 
