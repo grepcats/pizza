@@ -74,7 +74,7 @@ function buildPizzaForm() {
                         "</div>" +
                         "<div class='form-group'>" +
                           "<h2>What toppings would you like?</h2>" +
-                          "<h3 class='oneTopHead'>$1 toppings <span class='caret'></span></h3>" +
+                          "<h3 class='oneTopHead'>$1 toppings</h3>" +
                           "<ul class='oneTopList'>" +
                             "<li><label for='pepperoni' class='topping-label'>" +
                             "<input type='checkbox' class='pepperoni' name='toppings' value='pepperoni'> Pepperoni</label></li>" +
@@ -95,7 +95,7 @@ function buildPizzaForm() {
                             "<li><label for='mushrooms' class='topping-label'>" +
                             "<input type='checkbox' class='mushrooms' name='toppings' value='mushrooms'> Mushrooms</label></li>" +
                           "</ul>" +
-                          "<h3 class='twoTopHead'>$2 toppings <span class='caret'></span></h3>" +
+                          "<h3 class='twoTopHead'>$2 toppings</h3>" +
                           "<ul class='twoTopList'>" +
                             "<li><label for='artichokes' class='topping-label'>" +
                             "<input type='checkbox' class='artichokes' name='toppings' value='artichokes'> Artichoke Hearts</label></li>" +
@@ -138,7 +138,7 @@ function displayTotal(order) {
   $(".total").append("<p id='total-text'>The total for your order is: $" + order.total + "</p>");
 }
 
-
+//here's document.ready...
 $(document).ready(function() {
   $("#add").first().click(function() {
     buildPizzaForm();
@@ -146,52 +146,37 @@ $(document).ready(function() {
     $(".remove").click(function() {
       $(this).parent().remove();
     });
-    //$(".oneTopHead").click(function() {
-    //  $(".oneTopList").toggle();
-    //});
-  //  $(".twoTopHead").click(function() {
-  //    $(".twoTopList").toggle();
-  //  });
   });
 
-
-
-//create order
-var order = new Order();
-
+  //create order
+  var order = new Order();
   $("#pizza-form").submit(function(event) {
     event.preventDefault();
     createOrder(order);
 
-//display order total
-  displayTotal(order);
-  $(".pizzas").hide();
-  $("#add").hide();
-  //$(".retry").show()
+  //display order total
+    displayTotal(order);
+    $(".pizzas").hide();
+    $("#add").hide();
+    $(".retry").show()
 
-//review click
-  $(".review").click(function() {
- //TODO - need to be able to grab all numbers after pizzaID, not just last one
-    var pizzaIndex = $(this).attr("id")[7];
-    var reviewPizza = order.pizzas[pizzaIndex];
-    $(this).find("h4").remove();
-    $(this).find(".review-text").html("<p>Size: " + reviewPizza.size + "</p><p>Toppings: " + reviewPizza.toppingsDisplay.join(", "));
+  //review click
+    $(".review").click(function() {
+      var pizzaIndex = $(this).attr("id")[7];
+      var reviewPizza = order.pizzas[pizzaIndex];
+      $(this).find("h4").remove();
+      $(this).find(".review-text").html("<p>Size: " + reviewPizza.size + "</p><p>Toppings: " + reviewPizza.toppingsDisplay.join(", "));
+    });
 
+  //retry order
+    $(".retry").click(function() {
+      $(".pizzas").show();
+      $("#add").show();
+      $(".review").remove();
+      $(".total div").remove();
+      $(".total p").remove();
+      $(".retry").hide();
+      order = new Order();
+    });
   });
-
-  //$(".retry").click(function() {
-  //  $(".pizzas").show();
-  //  $(".review").remove();
-  //  $(".total div").remove();
-  //  $(".total p").remove();
-
-  //});
-
-
-
-  });
-
-
-
-
 });

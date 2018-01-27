@@ -1,10 +1,11 @@
+/*****General*****/
 h2 {
   font-size: 1em;
   font-weight: bold;
 }
 
 body {
-  background-color: #efefef;
+  background-color: #ffe0b2;
 }
 
 .container {
@@ -13,41 +14,12 @@ body {
 
 .jumbotron {
   text-align: center;
-  background-color: #bb4d00;
+  background-color: #c43e00;
   color: #fff;
-}
-
-/*
-.container {
-  background-image: url("../pizza.png");
-  background-repeat:repeat;
-}*/
-
-.topping-label {
-  font-weight: normal;
 }
 
 ul {
   list-style-type: none;
-}
-
-.total {
-  display:none;
-}
-
-/*
-.oneTopList,
-.twoTopList {
-  display:none;
-}
-*/
-
-#submit-button {
-  display:none;
-}
-
-#add {
-  margin-bottom: 20px;
 }
 
 .btn-lg {
@@ -63,21 +35,53 @@ ul {
   margin-bottom: 20px;
 }
 
+.well {
+  background-color: #ffcc80;
+}
 
+/*****pizza in progress*****/
+.topping-label {
+  font-weight: normal;
+}
 
-#total-header {
-  font-size: 2.5em;
+#submit-button {
+  display:none;
+}
+
+#add {
+  margin-bottom: 20px;
 }
 
 .pizza-num {
     font-size: 1.25em;
 }
 
-.well {
-  background-color: #ffcc80;
+/*****total*****/
+
+.total {
+  display:none;
+}
+
+#total-header {
+  font-size: 2.5em;
 }
 
 #total-text {
   font-size: 2em;
   font-weight: bold;
+  text-align: center;
+
+}
+
+.retry {
+  display:none;
+  text-align: center;
+  font-weight: bold;
+  color: grey;
+  font-style: italic;
+  font-size: 1.25em;
+}
+
+.retry:hover {
+  cursor: pointer;
 }
